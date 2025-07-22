@@ -1,0 +1,39 @@
+<div class="suppliers-list-container">
+  <h2>Material Suppliers</h2>
+
+  <div *ngIf="loading" class="loading-message">
+    <p>Loading material suppliers...</p>
+    <i class="fas fa-spinner fa-spin"></i>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+    <button (click)="loadSuppliers()">Retry</button>
+  </div>
+
+  <div *ngIf="!loading && suppliers.length === 0 && !error" class="no-suppliers-found">
+    <p>No material suppliers found at the moment.</p>
+  </div>
+
+  <div class="suppliers-grid" *ngIf="!loading && suppliers.length > 0">
+    <div class="supplier-card" *ngFor="let supplier of suppliers">
+      <img [src]="getProfileImage(supplier)" alt="{{ supplier.shopName }}" class="supplier-profile-img">
+      <div class="supplier-info">
+        <h3>{{ supplier.shopName }}</h3>
+        <p class="supplier-rating">
+          <i class="fas fa-star"></i> {{ supplier.rating | number:'1.1-1' }}
+          <span class="stars">{{ getStarRating(supplier.rating) }}</span>
+        </p>
+        <p class="supplier-description">{{ supplier.description }}</p>
+        <p class="supplier-location"><i class="fas fa-map-marker-alt"></i> {{ supplier.location }}</p>
+        <p class="supplier-phone"><i class="fas fa-phone"></i> {{ supplier.phoneNumber }}</p>
+      </div>
+      <div class="supplier-actions">
+        <a [href]="getSafeTelLink(supplier.phoneNumber)" class="btn btn-call"><i class="fas fa-phone"></i> Call</a>
+        <button (click)="startAudioCall(supplier.phoneNumber)" class="btn btn-audio-call"><i class="fas fa-microphone"></i> Audio Call</button>
+        <!-- You could add a "View Shop Details" routerLink here if you create a details page -->
+        <!-- <a [routerLink]="['/user-dashboard/material-suppliers', supplier.id]" class="btn btn-details">View Details</a> -->
+      </div>
+    </div>
+  </div>
+</div>

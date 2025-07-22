@@ -1,0 +1,63 @@
+<div class="tailors-list-container">
+  <h2>Find Your Perfect Tailor</h2>
+
+  <div *ngIf="loading" class="loading-message">
+    <p>Loading tailors...</p>
+    <i class="fas fa-spinner fa-spin"></i>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+    <button (click)="loadTailors()">Retry</button>
+  </div>
+
+  <div *ngIf="!loading && tailors.length === 0 && !error" class="no-tailors-found">
+    <p>No tailors found at the moment.</p>
+  </div>
+
+  <div class="tailors-grid" *ngIf="!loading && tailors.length > 0">
+    <div class="tailor-card" *ngFor="let tailor of tailors">
+      <div class="tailor-header">
+        <img [src]="tailor.profileImageUrl || 'assets/default-tailor.png'" alt="{{ tailor.username }}" class="tailor-profile-img">
+        <h3 class="tailor-name">{{ tailor.username }}</h3>
+        <span class="verified-badge" *ngIf="tailor.isVerified">
+          <i class="fas fa-check-circle"></i> Verified
+        </span>
+        <span class="unverified-badge" *ngIf="!tailor.isVerified">
+          <i class="fas fa-times-circle"></i> Unverified
+        </span>
+      </div>
+
+      <div class="tailor-details">
+        <p><i class="fas fa-phone-alt"></i> {{ tailor.phoneNumber }}</p>
+        <p><i class="fas fa-cut"></i> Stitched: {{ tailor.clothesStitched }} clothes</p>
+        <p class="rating">
+          <i class="fas fa-star"></i> {{ tailor.rating | number:'1.1-1' }}
+          <span class="stars">{{ getStarRating(tailor.rating) }}</span>
+        </p>
+        <p><i class="fas fa-map-marker-alt"></i> Location: {{ tailor.location }}</p>
+      </div>
+
+      <div class="tailor-actions">
+        <button [routerLink]="['/tailor-details', tailor.id]" class="view-details-btn">
+          View Details
+        </button>
+        <!-- Call button -->
+        <!-- <button class="call-btn" (click)="callTailor(tailor, currentUser.id)" title="Call Tailor">
+          <i class="fas fa-phone"></i>
+        </button> -->
+        <!-- Chat button -->
+       <button (click)="goToChat(tailor)" class="chat-btn"  title="Chat with Tailor">
+  <i class="fas fa-comment-dots"></i>
+      </button>   
+
+      </div>
+
+
+    </div>
+  </div>
+
+<!--  -->
+
+
+</div>

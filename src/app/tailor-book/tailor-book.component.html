@@ -1,0 +1,24 @@
+<!-- <div class="tailor-book-container" *ngIf="tailor">
+  <h2>Book {{ tailor.name }}</h2>
+  <img [src]="tailor.profileImageUrl" alt="{{ tailor.name }}" style="max-width:150px;">
+  <form (ngSubmit)="bookNow()" #bookingForm="ngForm">
+    <div>
+      <label for="description"><strong>Description:</strong></label>
+      <textarea id="description" name="description" [(ngModel)]="description" required rows="3"></textarea>
+    </div>
+    <div>
+      <label for="cost"><strong>Cost Decided:</strong></label>
+      <input id="cost" name="cost" type="number" [(ngModel)]="cost" required min="0">
+    </div>
+    <div>
+      <label for="prepayment"><strong>Prepayment:</strong></label>
+      <input id="prepayment" name="prepayment" type="number" [(ngModel)]="prepayment" required min="0">
+    </div>
+    <div>
+      <label for="remaining"><strong>Remaining Payment:</strong></label>
+      <input id="remaining" name="remaining" type="number" [(ngModel)]="remaining" required min="0">
+    </div>
+    <button type="submit" [disabled]="!bookingForm.form.valid">Confirm Booking</button>
+  </form>
+</div>
+ -->

@@ -1,0 +1,210 @@
+/* src/app/tailor-dashboard/tailor-dashboard.component.css */
+
+/* Overall layout */
+.tailor-dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the layout takes full viewport height */
+  background-color: #f4f7f6; /* Light background for the whole page */
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Modern font */
+}
+
+/* Header Styles */
+.dashboard-header {
+  background-color: #28a745; /* Tailor-specific green color */
+  color: white;
+  padding: 15px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 20px; /* Space between header elements */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensure content takes full width */
+  flex-wrap: wrap; /* Allow wrapping of content within header */
+  gap: 20px;
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 40px; /* Size for your logo */
+  width: auto;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.welcome-message {
+  font-size: 1.1em;
+  font-weight: 500;
+  flex-grow: 1; /* Allows it to take available space */
+  text-align: center; /* Center on larger screens */
+  white-space: nowrap; /* Prevent wrapping */
+  color: #e6ffec; /* Lighter green for subtle contrast */
+}
+
+.dashboard-header .tailor-name {
+  font-weight: bold;
+  color: #c8e6c9; /* Lighter green accent for tailor name */
+}
+
+/* Navigation Styles */
+.dashboard-nav {
+  display: flex;
+  gap: 30px; /* Space between links */
+  flex-wrap: wrap; /* Allow navigation items to wrap */
+  justify-content: center; /* Center nav items when wrapped */
+}
+
+.dashboard-nav .nav-item {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  border-radius: 5px;
+}
+
+.dashboard-nav .nav-item i {
+  font-size: 1.1em;
+}
+
+.dashboard-nav .nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Subtle hover effect */
+  border-radius: 5px;
+}
+
+.dashboard-nav .nav-item.active {
+  background-color: rgba(255, 255, 255, 0.25); /* More prominent for active */
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Outer glow for active */
+}
+
+/* Logout Button */
+.logout-button {
+  background-color: #f44336; /* Red for logout */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logout-button i {
+  font-size: 1.1em;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Main Content Area */
+.dashboard-main-content {
+  flex-grow: 1; /* Allows content area to fill remaining vertical space */
+  padding: 20px;
+  background-color: #ffffff; /* White background for the content area */
+  border-radius: 8px;
+  margin: 20px; /* Margin around the content area */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08); /* Stronger shadow for content box */
+}
+
+/* Footer Styles */
+.dashboard-footer {
+  background-color: #424242; /* Dark gray for footer */
+  color: #e0e0e0;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.85em;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: center; /* Center content within header */
+    text-align: center;
+    gap: 15px;
+  }
+
+  .app-logo {
+    margin-bottom: 10px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.5em;
+  }
+
+  .welcome-message {
+    text-align: center;
+    width: 100%; /* Take full width for centering */
+  }
+
+  .dashboard-nav {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .dashboard-nav .nav-item {
+    justify-content: center; /* Center content of nav items */
+    width: 100%;
+  }
+
+  .logout-button {
+    width: 100%;
+    margin-top: 15px; /* Space from nav */
+    justify-content: center;
+  }
+
+  .dashboard-main-content {
+    margin: 10px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-header h1 {
+    font-size: 1.2em;
+  }
+  .welcome-message {
+    font-size: 1em;
+  }
+  .logout-button {
+    font-size: 0.85em;
+    padding: 8px 12px;
+  }
+}

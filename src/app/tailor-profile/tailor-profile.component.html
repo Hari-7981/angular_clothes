@@ -1,0 +1,161 @@
+<div class="edit-profile-page">
+  
+  
+  <div class="profile-table">
+    <div class="profile-row">
+      <span class="profile-label">Name</span>
+      <span class="profile-value">
+        {{ tailor.name || 'Tailor Name' }}
+        <i class="fa fa-edit edit-icon" (click)="startInlineEdit('name')"></i>
+      </span>
+    </div>
+    <div class="profile-row">
+      <span class="profile-label">Phone</span>
+      <span class="profile-value">
+        {{ tailor.phoneNumber }}
+        <i class="fa fa-edit edit-icon" (click)="startInlineEdit('phoneNumber')"></i>
+      </span>
+    </div>
+    <div class="profile-row">
+      <span class="profile-label">Email</span>
+      <span class="profile-value">
+        {{ tailor.email }}
+        <i class="fa fa-edit edit-icon" (click)="startInlineEdit('email')"></i>
+      </span>
+    </div>
+    <div class="profile-row">
+      <span class="profile-label">Shop Name</span>
+      <span class="profile-value">
+        {{ tailor.shopName }}
+        <i class="fa fa-edit edit-icon" (click)="startInlineEdit('shopName')"></i>
+      </span>
+    </div>
+    <div class="profile-row">
+      <span class="profile-label">Location</span>
+      <span class="profile-value">
+        {{ tailor.location }}
+        <i class="fa fa-edit edit-icon" (click)="startInlineEdit('location')"></i>
+      </span>
+    </div>
+    <div class="profile-row">
+      <span class="profile-label">Verified</span>
+      <span class="profile-value">
+        <span>{{ tailor.isVerified ? 'Verified' : 'Not Verified' }}</span>
+      </span>
+    </div>
+    <div class="profile-row">
+      <span class="profile-label">Profile Image</span>
+      <span class="profile-value">
+        <img *ngIf="tailor.profileImageUrl" [src]="'http://localhost:8080' + tailor.profileImageUrl" alt="Profile Image" class="profile-img-circle" />
+       <input #profileInput id="profileImageInput" type="file" (change)="onProfileImageUpload($event)" />
+
+
+      </span>
+    </div>
+    <div class="profile-row">
+      <span class="profile-label">Works (min 3)</span>
+      <span class="profile-value works-preview">
+        <ng-container *ngFor="let url of worksPreviewUrls; let i = index">
+          <img [src]="'http://localhost:8080' + url" alt="Work {{i+1}}" style="max-width: 70px; margin-right: 8px; border-radius: 6px;" />
+        </ng-container>
+       <input #worksInput id="worksInput" type="file" multiple (change)="onWorksUpload($event)" />
+       <!-- <input type="file" #worksInput (change)="onWorksUpload($event)" multiple> -->
+
+    <span *ngIf="worksPreviewUrls.length < 3" class="works-warning">Please upload at least 3 works images.</span>
+  </span>
+    </div>
+    <div class="profile-row">
+      <span class="profile-label">Bio</span>
+      <span class="profile-value" *ngIf="inlineEditField !== 'bio'">
+        {{ tailor.bio || 'No bio yet.' }}
+        <i class="fa fa-edit edit-icon" (click)="startInlineEdit('bio')"></i>
+      </span>
+      <span *ngIf="inlineEditField === 'bio'">
+        <textarea [(ngModel)]="editedProfile.bio" rows="3" style="width: 100%; resize: vertical;"></textarea>
+        <i class="fa fa-check save-icon" (click)="saveInlineEdit('bio')"></i>
+        <i class="fa fa-times cancel-icon" (click)="cancelInlineEdit()"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="profile-actions">
+    <button class="save-profile-btn" (click)="saveProfile()">
+      Save Profile
+    </button>
+    <button class="cancel-profile-btn" (click)="cancelProfile()">
+      Cancel
+    </button>
+  </div>
+
+  <!-- Modal Edit Card -->
+  <app-inline-edit-card
+    *ngIf="inlineEditField !== null"
+    [label]="getEditLabel(inlineEditField)"
+    [value]="getEditValue(inlineEditField)"
+    [type]="getEditType(inlineEditField)"
+    (save)="onModalEditSave($event)"
+    (cancel)="cancelInlineEdit()"
+  ></app-inline-edit-card>
+</div>
+
+<style>
+.profile-img-circle {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.save-profile-btn {
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6em 1.4em;
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-right: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.save-profile-btn:hover {
+  background: #005fa3;
+}
+.cancel-profile-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6em 1.4em;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cancel-profile-btn:hover {
+  background: #c0392b;
+}
+
+
+.edit-profile-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full height */
+  padding: 1em;
+  position: relative;
+}
+
+.profile-table {
+  flex: 1;
+  padding-bottom: 6em; /* space for buttons if overlapping */
+}
+
+.profile-actions {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 1em;
+}
+</style>

@@ -1,0 +1,57 @@
+<div class="my-bookings-container p-4 md:p-6 bg-gray-50 rounded-lg shadow-md max-w-4xl mx-auto my-8">
+      <!-- <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-3 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-3 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+        </svg>
+        My Bookings
+      </h3> -->
+
+      <!-- <div *ngIf="loadingBookings" class="text-center py-6 text-gray-600">
+        <p>Loading your bookings...</p>
+        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-500 mx-auto mt-3"></div>
+      </div> -->
+
+      <!-- <div *ngIf="!loadingBookings && bookings.length === 0 && !bookingError" class="text-center py-6 text-gray-600">
+        <p>You don't have any active bookings yet.</p>
+        <p class="mt-2 text-sm">Start by finding a tailor to book!</p>
+      </div> -->
+
+      <!-- <div *ngIf="bookingError" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md mb-6" role="alert">
+        <p class="font-bold">Error loading bookings!</p>
+        <p>{{ bookingError }}</p>
+        <button (click)="loadBookings()" class="mt-3 bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full text-sm">Retry</button>
+      </div> -->
+
+      <div *ngIf="!loadingBookings && bookings.length > 0" class="bookings-grid grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div *ngFor="let booking of bookings" class="booking-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-200">
+          <div class="booking-header p-5 bg-indigo-50 border-b border-indigo-100">
+            <h4 class="text-xl font-semibold text-indigo-800">Booking ID: <span class="text-indigo-600">{{ booking.id }}</span></h4>
+            <span class="text-sm font-medium px-3 py-1 rounded-full mt-2 inline-block"
+                  [ngClass]="{
+                    'status-pending': booking.status === 'Pending',
+                    'status-confirmed': booking.status === 'Confirmed',
+                    'status-completed': booking.status === 'Completed',
+                    'status-cancelled': booking.status === 'Cancelled'
+                  }">
+              {{ booking.status | titlecase }}
+            </span>
+          </div>
+          <div class="booking-details p-5 space-y-3">
+            <p class="text-gray-700 flex items-center text-base"><i class="fas fa-calendar-alt text-indigo-500 mr-2"></i>
+              <span class="font-semibold mr-1">Delivery Date:</span> {{ booking.deliveryDate }}
+            </p>
+            <p class="text-gray-700 flex items-center text-base"><i class="fas fa-dollar-sign text-green-500 mr-2"></i>
+              <span class="font-semibold mr-1">Cost:</span> {{ booking.fixedCost | currency:'USD':'symbol':'1.2-2' }}
+            </p>
+            <div class="text-gray-700 flex items-start text-base">
+              <i class="fas fa-file-alt text-indigo-500 mr-2 mt-1"></i>
+              <div>
+                <span class="font-semibold">Description:</span>
+                <p class="text-gray-600 text-sm mt-1 leading-relaxed">{{ booking.description }}</p>
+              </div>
+            </div>
+            <!-- No other fields displayed as per request -->
+          </div>
+        </div>
+      </div>
+    </div>

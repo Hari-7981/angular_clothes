@@ -1,0 +1,19 @@
+<div class="chat-wrapper">
+  <div class="chat-header">
+    <h3>Chat with Tailor {{ receiverId }}</h3>
+  </div>
+
+  <div class="chat-messages" #scrollMe>
+    <div *ngFor="let msg of messages" 
+         class="chat-bubble" 
+         [ngClass]="{'sent': msg.senderId === currentUserId, 'received': msg.senderId !== currentUserId}">
+      <div class="bubble-text">{{ msg.content }}</div>
+      <div class="timestamp">{{ msg.timestamp | date:'shortTime' }}</div>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" [(ngModel)]="message" placeholder="Type a message..." (keyup.enter)="sendMessage()" />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

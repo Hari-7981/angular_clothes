@@ -1,0 +1,87 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+   <h2 *ngIf="registerForm.get('role')?.value === 'USER'" [ngClass]="{'user-heading': true}">Register as a Customer</h2>
+  <h2 *ngIf="registerForm.get('role')?.value === 'TAILOR'" [ngClass]="{'tailor-heading': true}">Register as a Tailor</h2>
+  <h2 *ngIf="registerForm.get('role')?.value === 'MATERIAL'" [ngClass]="{'material-heading': true}">Register as a Material Supplier</h2>
+
+  </div>
+
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input id="username" type="text" formControlName="username" required>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input id="password" type="password" formControlName="password" required>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input id="name" type="text" formControlName="name" required>
+  </div>
+
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number:</label>
+    <input id="phoneNumber" type="text" formControlName="phoneNumber" required>
+  </div>
+
+
+  <ng-container *ngIf="registerForm.get('role')?.value === 'TAILOR'">
+    <div class="form-group">
+      <label for="shopName">Shop Name:</label>
+      <input id="shopName" type="text" formControlName="shopName" required>
+    </div>
+    <div class="form-group">
+      <label for="experienceYears">Years of Experience:</label>
+      <input id="experienceYears" type="number" formControlName="experienceYears" required>
+    </div>
+    <div class="form-group">
+      <label for="tailorBio">Bio:</label>
+      <textarea id="tailorBio" formControlName="bio" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="tailorLocation">Location:</label>
+      <input id="tailorLocation" type="text" formControlName="location" required>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="registerForm.get('role')?.value === 'MATERIAL'">
+    <div class="form-group">
+      <label for="supplierShopName">Supplier Shop Name:</label>
+      <input id="supplierShopName" type="text" formControlName="supplierShopName" required>
+      <div *ngIf="registerForm.get('supplierShopName')?.touched && registerForm.get('supplierShopName')?.invalid" class="invalid-feedback">
+        <span style="color:red">*</span> Supplier Shop Name is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="startedDate">Business Started Date:</label>
+      <input id="startedDate" type="date" formControlName="startedDate" required>
+      <div *ngIf="registerForm.get('startedDate')?.touched && registerForm.get('startedDate')?.invalid" class="invalid-feedback">
+        <span style="color:red">*</span> Business Started Date is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="supplierBio">Bio:</label>
+      <textarea id="supplierBio" formControlName="bio" required></textarea>
+      <div *ngIf="registerForm.get('bio')?.touched && registerForm.get('bio')?.invalid" class="invalid-feedback">
+        <span style="color:red">*</span> Bio is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="supplierLocation">Location:</label>
+      <input id="supplierLocation" type="text" formControlName="location" required>
+      <div *ngIf="registerForm.get('location')?.touched && registerForm.get('location')?.invalid" class="invalid-feedback">
+        <span style="color:red">*</span> Location is required
+      </div>
+    </div>
+  </ng-container>
+
+  <button type="submit">Register</button>
+</form>

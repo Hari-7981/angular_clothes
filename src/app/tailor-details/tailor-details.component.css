@@ -1,0 +1,124 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #f0f4f8;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main content container */
+.center-container {
+  background: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Title and subtitle */
+h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: #34495e;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Profile image */
+img[alt] {
+  max-width: 200px;
+  border-radius: 10px;
+  border: 2px solid #e0e0e0;
+  margin: 1rem auto;
+}
+
+/* Text content */
+p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+p strong::after {
+  content: ": ";
+}
+
+/* Icons using Unicode */
+p:nth-of-type(2)::before {
+  content: "📍 ";
+}
+p:nth-of-type(3)::before {
+  content: "📞 ";
+}
+p:nth-of-type(4)::before {
+  content: "⭐ ";
+}
+p:nth-of-type(5)::before {
+  content: "🧵 ";
+}
+p:nth-of-type(6)::before {
+  content: "📝 ";
+}
+
+/* Sample works */
+img[src*="placeholder"] {
+  margin: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+img[src*="placeholder"]:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Reviews */
+ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem auto;
+  display: inline-block;
+  text-align: left;
+}
+
+li {
+  margin-bottom: 0.3rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+li::before {
+  content: "💬 ";
+  position: absolute;
+  left: 0;
+}
+
+/* Stitching Types */
+ul li::marker {
+  content: "✔️ ";
+}
+
+/* Buttons */
+button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  margin: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}

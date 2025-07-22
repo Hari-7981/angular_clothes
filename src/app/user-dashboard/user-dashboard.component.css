@@ -1,0 +1,151 @@
+/* Overall layout */
+.user-dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the layout takes full viewport height */
+  background-color: #f4f7f6; /* Light background for the whole page */
+}
+
+/* Header Styles */
+.dashboard-header {
+  background-color: #007bff; /* Primary blue for header */
+  color: white;
+  padding: 15px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensure content takes full width */
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.dashboard-header .user-name {
+  font-weight: bold;
+  color: #cceeff; /* Lighter blue for username */
+}
+
+/* Navigation Styles */
+.dashboard-nav {
+  display: flex;
+  gap: 25px; /* Space between links */
+}
+
+.dashboard-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 0;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative; /* For active indicator */
+}
+
+.dashboard-nav a:hover {
+  color: #e0f2f7; /* Lighter on hover */
+}
+
+.dashboard-nav a.active {
+  color: #cceeff; /* Highlight active link */
+  border-bottom: 2px solid #cceeff; /* Underline active link */
+}
+
+/* Logout Button */
+.logout-button {
+  background-color: #dc3545; /* Red for logout */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+  margin-left: 20px; /* Space from navigation */
+}
+
+.logout-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Main Content Area */
+.dashboard-main-content {
+  flex-grow: 1; /* Allows content area to fill remaining vertical space */
+  padding: 20px;
+  background-color: #ffffff; /* White background for the content area */
+  border-radius: 8px;
+  margin: 20px; /* Margin around the content area */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for content box */
+}
+
+/* Footer Styles */
+.dashboard-footer {
+  background-color: #343a40; /* Dark gray for footer */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.85em;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.5em;
+  }
+
+  .dashboard-nav {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .dashboard-nav a {
+    padding: 5px 10px;
+    border-bottom: none; /* Remove underline on smaller screens */
+    width: fit-content;
+  }
+
+  .dashboard-nav a.active {
+    border-left: 3px solid #cceeff; /* Use left border for active */
+    border-bottom: none;
+  }
+
+  .logout-button {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .dashboard-main-content {
+    margin: 10px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 1.2em;
+  }
+}

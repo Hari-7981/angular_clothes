@@ -1,0 +1,60 @@
+<!-- <div class="dashboard-profile">
+  <h2>🧵 Tailor Dashboard</h2>
+
+  <!-- Profile Overview -->
+  <div class="profile-summary">
+    <img *ngIf="currentTailorProfile?.profileImageUrl" [src]="currentTailorProfile.profileImageUrl" alt="Profile Image" />
+    <div>
+      <h3>{{ currentTailorProfile?.name || 'Tailor Name' }}</h3>
+      <p><span>📞</span> {{ currentTailorProfile?.phoneNumber }}</p>
+      <p><span>✉️</span> {{ currentTailorProfile?.email }}</p>
+      <p><span>🏪</span> {{ currentTailorProfile?.shopName }}</p>
+      <p><span>📍</span> {{ currentTailorProfile?.location }}</p>
+      <p><span>✅</span> {{ currentTailorProfile?.isVerified ? 'Verified' : 'Not Verified' }}</p>
+    </div>
+    <button *ngIf="!editMode" (click)="enableEdit()">Edit Profile</button>
+  </div>
+
+  <!-- Edit Form -->
+  <form *ngIf="editMode" class="edit-section" (ngSubmit)="saveProfile()">
+    <h3>Edit Information</h3>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="editedProfile.name" name="name" required />
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="text" [(ngModel)]="editedProfile.phoneNumber" name="phoneNumber" required />
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="editedProfile.email" name="email" required />
+    </div>
+    <div class="form-group">
+      <label>Shop Name</label>
+      <input type="text" [(ngModel)]="editedProfile.shopName" name="shopName" />
+    </div>
+    <div class="form-group">
+      <label>Location</label>
+      <input type="text" [(ngModel)]="editedProfile.location" name="location" />
+    </div>
+    <div class="form-group">
+      <label>Bio</label>
+      <textarea [(ngModel)]="editedProfile.bio" name="bio"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Experience (years)</label>
+      <input type="number" [(ngModel)]="editedProfile.experienceYears" name="experienceYears" min="0" />
+    </div>
+    <div class="form-group checkbox-group">
+      <label>
+        <input type="checkbox" [(ngModel)]="editedProfile.isVerified" name="isVerified" />
+        Verified
+      </label>
+    </div>
+    <div class="form-actions">
+      <button type="submit">Save</button>
+      <button type="button" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </form>
+</div> -->

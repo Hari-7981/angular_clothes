@@ -1,0 +1,51 @@
+<div class="my-orders-container">
+  <h2>My Orders</h2>
+
+  <div *ngIf="orders.length === 0" class="no-orders-message">
+    <p>You currently have no active orders.</p>
+    <p>Place an order with your favorite tailor or material supplier to see it here!</p>
+  </div>
+
+  <div *ngIf="orders.length > 0" class="orders-grid">
+    <div *ngFor="let order of orders" class="order-card">
+      <h3>Order ID: {{ order.id }} - {{ order.itemName }}</h3>
+      <div class="order-details">
+        <p><strong>Delivery Date:</strong> {{ order.deliveryDate | date:'fullDate' }}</p>
+        <p><strong>Fixed Cost:</strong> ₹{{ order.fixedCost | number:'1.2-2' }}</p>
+
+        <div class="status-section">
+          <h4>Cloth Procurement & Delivery Status:</h4>
+          <ul>
+            <li>
+              <strong>From Supplier:</strong>
+              <span [ngClass]="{'status-pending': order.clothGettingFromMaterialSupplierStatus === 'Pending',
+                                'status-progress': order.clothGettingFromMaterialSupplierStatus === 'Ordered',
+                                'status-complete': order.clothGettingFromMaterialSupplierStatus === 'Received',
+                                'status-na': order.clothGettingFromMaterialSupplierStatus === 'Not Applicable'}">
+                {{ order.clothGettingFromMaterialSupplierStatus }}
+              </span>
+            </li>
+            <li>
+              <strong>Tailor Buying:</strong>
+              <span [ngClass]="{'status-pending': order.clothBuyingByTailorStatus === 'Pending',
+                                'status-complete': order.clothBuyingByTailorStatus === 'Purchased',
+                                'status-na': order.clothBuyingByTailorStatus === 'Not Applicable'}">
+                {{ order.clothBuyingByTailorStatus }}
+              </span>
+            </li>
+            <li>
+              <strong>Final Delivery:</strong>
+              <span [ngClass]="{'status-pending': order.clothDeliveringStatus === 'Pending',
+                                'status-progress': order.clothDeliveringStatus === 'In Transit',
+                                'status-complete': order.clothDeliveringStatus === 'Delivered',
+                                'status-na': order.clothDeliveringStatus === 'Not Applicable'}">
+                {{ order.clothDeliveringStatus }}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="details-button" (click)="viewOrderDetails(order.id)">View Details</button>
+    </div>
+  </div>
+</div>

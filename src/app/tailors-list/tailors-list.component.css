@@ -1,0 +1,191 @@
+.tailors-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the container */
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #3f51b5; /* Primary color */
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  font-weight: 700;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.loading-message, .error-message, .no-tailors-found {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1em;
+  color: #555;
+  background-color: #e0e7fa; /* Light blue for info */
+  border: 1px solid #c3d2f7;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  background-color: #ffebee; /* Light red for error */
+  border-color: #ef9a9a;
+  color: #d32f2f;
+}
+
+.error-message button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.error-message button:hover {
+  background-color: #d32f2f;
+}
+
+.tailors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 25px;
+}
+
+.tailor-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid #e0e0e0;
+}
+
+.tailor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tailor-header {
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tailor-profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #3f51b5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tailor-name {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.verified-badge, .unverified-badge {
+  font-size: 0.9em;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.verified-badge {
+  background-color: #e8f5e9; /* Light green */
+  color: #4caf50; /* Dark green */
+  border: 1px solid #a5d6a7;
+}
+
+.unverified-badge {
+  background-color: #ffebee; /* Light red */
+  color: #f44336; /* Dark red */
+  border: 1px solid #ef9a9a;
+}
+
+.tailor-details {
+  width: 100%;
+  text-align: left; /* Align details to the left within the card */
+  margin-top: 10px;
+}
+
+.tailor-details p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tailor-details p i {
+  color: #757575;
+  font-size: 1.1em;
+  min-width: 20px; /* Ensure icon alignment */
+}
+
+.tailor-details .rating {
+  color: #fbc02d; /* Yellow for stars */
+  font-weight: bold;
+}
+
+.tailor-details .rating .stars {
+  font-size: 1.2em; /* Larger stars */
+}
+
+.tailor-actions {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Space between buttons */
+}
+
+.view-details-btn, .book-now-btn {
+  background-color: #424242; /* Darker gray for actions */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none; /* For routerLink */
+  display: inline-block; /* For routerLink */
+}
+
+.view-details-btn:hover, .book-now-btn:hover {
+  background-color: #616161;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tailors-grid {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+  }
+
+  .tailor-card {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+}

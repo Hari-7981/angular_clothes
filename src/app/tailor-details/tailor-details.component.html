@@ -1,0 +1,43 @@
+<div *ngIf="loading">Loading tailor details...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<div *ngIf="!loading && tailor" class="center-container">
+  <h2>{{ tailor.name }}</h2>
+  <img [src]="tailor.profileImageUrl" alt="{{ tailor.name }}">
+  <p><strong>Location</strong> {{ tailor.location }}</p>
+  <p><strong>Phone</strong> {{ tailor.phoneNumber }}</p>
+  <p><strong>Rating</strong> {{ tailor.rating }}</p>
+  <p><strong>Clothes Stitched</strong> {{ tailor.clothesStitched }}</p>
+  <p><strong>Description</strong> {{ tailor.bio }}</p>
+
+  <div>
+    <h3>Sample Works</h3>
+    <img src="https://via.placeholder.com/100x100?text=Work1" alt="Work 1">
+    <img src="https://via.placeholder.com/100x100?text=Work2" alt="Work 2">
+    <img src="https://via.placeholder.com/100x100?text=Work3" alt="Work 3">
+  </div>
+
+  <div>
+    <h3>Reviews</h3>
+    <ul>
+      <li>"Excellent stitching!" - User1</li>
+      <li>"Very professional." - User2</li>
+    </ul>
+  </div>
+
+  <div>
+    <button>Message</button>
+    <button>Call</button>
+  </div>
+
+  <div>
+    <h3>Stitching Types</h3>
+    <ul>
+      <li>Men's Suits</li>
+      <li>Women's Dresses</li>
+      <li>Kids Wear</li>
+    </ul>
+  </div>
+
+  <button (click)="bookTailor()">Book This Tailor</button>
+</div>

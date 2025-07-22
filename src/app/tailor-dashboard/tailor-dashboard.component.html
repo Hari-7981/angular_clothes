@@ -1,0 +1,76 @@
+<!-- src/app/tailor-dashboard/tailor-dashboard.component.html -->
+
+<div class="tailor-dashboard-layout">
+  <header class="dashboard-header">
+    <div class="header-content">
+      <div class="app-logo">
+     <!-- <a *ngIf="tailorId" [routerLink]="['/tailor-profile', tailorId]">
+  <img
+    *ngIf="currentTailorProfile?.profileImageUrl; else defaultLogo"
+    [src]="'http://localhost:8080' + currentTailorProfile?.profileImageUrl"
+    alt="Profile Image"
+    class="logo-img profile-img profile-img-circle"
+  />
+  <ng-template #defaultLogo>
+    <img src="assets/logo.png" alt="TailorApp Logo" class="logo-img" />
+  </ng-template>
+</a> -->
+<div class="logo-wrapper" (click)="goToProfile()" style="cursor: pointer;">
+  <img
+    *ngIf="currentTailorProfile?.profileImageUrl; else defaultLogo"
+    [src]="'http://localhost:8080' + currentTailorProfile?.profileImageUrl"
+    alt="Profile Image"
+    class="logo-img profile-img profile-img-circle"
+  />
+  <ng-template #defaultLogo>
+    <img src="assets/logo.png" alt="TailorApp Logo" class="logo-img" />
+  </ng-template>
+</div>
+
+
+      </div>
+      <div class="welcome-message">
+        Welcome, <span class="tailor-name">{{ tailorName }}</span>!
+      </div>
+      <nav class="dashboard-nav">
+        <!-- Navigation links for Tailor Dashboard -->
+        <!-- wherever you build your side‑nav -->
+     <a routerLink="chat-dashboard" routerLinkActive="active" class="nav-item">
+          <i class="fas fa-comments"></i> Chats
+        </a>
+
+        <a routerLink="my-orders" routerLinkActive="active" class="nav-item">
+          <i class="fas fa-clipboard-list"></i> My Orders
+        </a>
+        <a routerLink="material-supplier" routerLinkActive="active" class="nav-item">
+          <i class="fas fa-box-open"></i> Material Supplier
+        </a>
+        
+        <!-- Add more tailor-specific navigation items here -->
+      </nav>
+      <button class="logout-button" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </header>
+
+  <main class="dashboard-main-content">
+    <!-- This is where the child components (MyOrdersListComponent, MaterialSupplierListComponent) will be rendered -->
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="dashboard-footer">
+    <p>&copy; 2025 TailorApp. All rights reserved. | For Tailors</p>
+  </footer>
+</div>
+
+<style>
+.profile-img-circle {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+</style>

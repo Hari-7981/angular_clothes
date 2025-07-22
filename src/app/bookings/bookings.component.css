@@ -1,0 +1,161 @@
+/* General container for the bookings page */
+.my-bookings-container {
+  padding: 1.5rem; /* Equivalent to p-6 */
+  background-color: #f9fafb; /* Equivalent to bg-gray-50 */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalent to shadow-md */
+  max-width: 64rem; /* Equivalent to max-w-4xl (1024px) */
+  margin: 2rem auto; /* Equivalent to mx-auto my-8 */
+}
+
+/* Grid layout for booking cards */
+.bookings-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to 1 column on small screens */
+  gap: 1.5rem; /* Equivalent to gap-6 */
+}
+
+/* Media query for medium screens and above (md:grid-cols-2) */
+@media (min-width: 768px) {
+  .bookings-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
+/* Individual booking card styling */
+.booking-card {
+  background-color: #ffffff; /* Equivalent to bg-white */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
+  overflow: hidden;
+  border: 1px solid #e5e7eb; /* Equivalent to border border-gray-200 */
+  transition: box-shadow 0.3s ease-in-out; /* Equivalent to transition-shadow duration-300 */
+}
+
+.booking-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to hover:shadow-xl */
+}
+
+/* Header section of the booking card */
+.booking-header {
+  padding: 1.25rem; /* Equivalent to p-5 */
+  background-color: #eef2ff; /* Equivalent to bg-indigo-50 */
+  border-bottom: 1px solid #e0e7ff; /* Equivalent to border-b border-indigo-100 */
+}
+
+.booking-header h4 {
+  font-size: 1.25rem; /* Equivalent to text-xl */
+  font-weight: 600; /* Equivalent to font-semibold */
+  color: #3730a3; /* Equivalent to text-indigo-800 */
+  margin-bottom: 0.5rem;
+}
+
+.booking-header h4 span {
+  color: #4f46e5; /* Equivalent to text-indigo-600 */
+}
+
+.booking-header .status-tag {
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  font-weight: 500; /* Equivalent to font-medium */
+  padding: 0.25rem 0.75rem; /* Equivalent to px-3 py-1 */
+  border-radius: 9999px; /* Equivalent to rounded-full */
+  margin-top: 0.5rem; /* Equivalent to mt-2 */
+  display: inline-block; /* Equivalent to inline-block */
+}
+
+/* Specific status tag colors */
+.status-tag.status-pending {
+  background-color: #fef3c7; /* Equivalent to bg-yellow-100 */
+  color: #a16207; /* Equivalent to text-yellow-700 */
+}
+
+.status-tag.status-confirmed,
+.status-tag.status-completed {
+  background-color: #dcfce7; /* Equivalent to bg-green-100 */
+  color: #166534; /* Equivalent to text-green-700 */
+}
+
+.status-tag.status-cancelled {
+  background-color: #fee2e2; /* Equivalent to bg-red-100 */
+  color: #b91c1c; /* Equivalent to text-red-700 */
+}
+
+/* Status color classes */
+.status-pending {
+  background-color: #fff9c4; /* light yellow */
+  color: #b59f00;           /* dark yellow */
+}
+.status-confirmed, .status-completed {
+  background-color: #c8e6c9; /* light green */
+  color: #256029;            /* dark green */
+}
+.status-cancelled {
+  background-color: #ffcdd2; /* light red */
+  color: #b71c1c;            /* dark red */
+}
+
+/* Booking details section */
+.booking-details {
+  padding: 1.25rem; /* Equivalent to p-5 */
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Equivalent to space-y-3 */
+}
+
+.booking-details p,
+.booking-details div {
+  color: #374151; /* Equivalent to text-gray-700 */
+  display: flex;
+  align-items: flex-start; /* For multi-line items like description */
+  font-size: 1rem; /* Equivalent to text-base */
+}
+
+.booking-details i {
+  margin-right: 0.5rem; /* Equivalent to mr-2 */
+}
+
+.booking-details .fa-calendar-alt {
+  color: #6366f1; /* Equivalent to text-indigo-500 */
+}
+
+.booking-details .fa-dollar-sign {
+  color: #22c55e; /* Equivalent to text-green-500 */
+}
+
+.booking-details .fa-file-alt {
+  color: #6366f1; /* Equivalent to text-indigo-500 */
+  margin-top: 0.25rem; /* Equivalent to mt-1 */
+}
+
+.booking-details p span.font-semibold {
+  font-weight: 600; /* Equivalent to font-semibold */
+  margin-right: 0.25rem; /* Equivalent to mr-1 */
+}
+
+.booking-details .description-content {
+  color: #4b5563; /* Equivalent to text-gray-600 */
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  margin-top: 0.25rem; /* Equivalent to mt-1 */
+  line-height: 1.5; /* Equivalent to leading-relaxed */
+}
+
+/* Spinner for loading state (if you have one) */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* Adjust as needed */
+  font-size: 1.2rem;
+  color: #6b7280; /* Gray-500 */
+}
+
+/* No bookings message */
+.no-bookings-message {
+  text-align: center;
+  padding: 3rem;
+  color: #6b7280; /* Gray-500 */
+  font-size: 1.1rem;
+  background-color: #f3f4f6; /* Gray-100 */
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}

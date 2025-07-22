@@ -1,0 +1,302 @@
+.edit-profile-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.edit-profile-page h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* Profile Summary */
+.profile-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-summary img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+.profile-summary h3 {
+  margin: 0 0 0.5rem;
+  color: #2c3e50;
+}
+
+.profile-summary p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Form Section */
+.edit-section {
+  margin-top: 2rem;
+}
+
+.edit-section h3 {
+  margin-bottom: 1.2rem;
+  color: #34495e;
+  border-left: 4px solid #007bff;
+  padding-left: 0.6rem;
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 1.4rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"] {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+/* Preview Work Images */
+.works-preview {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.works-preview img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.4rem;
+}
+
+/* Save Button */
+button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 2rem auto 0;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Top-notch, modern profile table styling */
+.profile-table {
+  max-width: 480px;
+  margin: 32px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 4px rgba(0,0,0,0.04);
+  padding: 32px 24px 24px 24px;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+.profile-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 18px 0 10px 0;
+  min-height: 48px;
+}
+.profile-row:last-child {
+  border-bottom: none;
+}
+.profile-label {
+  flex: 0 0 120px;
+  color: #888;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+.profile-value {
+  flex: 1;
+  font-size: 1.08rem;
+  color: #222;
+  display: flex;
+  align-items: center;
+}
+.edit-icon, .save-icon, .cancel-icon {
+  margin-left: 12px;
+  font-size: 1.1em;
+  color: #0078d4;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.edit-icon:hover {
+  color: #005fa3;
+}
+.save-icon {
+  color: #28a745;
+}
+.save-icon:hover {
+  color: #1e7e34;
+}
+.cancel-icon {
+  color: #e74c3c;
+}
+.cancel-icon:hover {
+  color: #c0392b;
+}
+input[type="text"], input[type="email"] {
+  padding: 6px 12px;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  margin-right: 8px;
+  transition: border 0.2s;
+}
+input[type="text"]:focus, input[type="email"]:focus {
+  border: 1.5px solid #0078d4;
+}
+img[alt="Profile Image"] {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-top: 8px;
+}
+
+/* Inline Edit Card Overlay */
+.inline-edit-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
+  padding: 2rem 2.2rem 1.5rem 2.2rem;
+  min-width: 260px;
+  max-width: 340px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  animation: fadeInCard 0.18s;
+}
+.inline-edit-card label {
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: #444;
+  font-size: 1.08rem;
+}
+.inline-edit-card input {
+  padding: 10px 14px;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 1.08rem;
+  margin-bottom: 1.2rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.inline-edit-card input:focus {
+  border: 1.5px solid #0078d4;
+}
+.inline-edit-card .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.1rem;
+}
+.profile-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  margin-top: 1.5em;
+}
+.inline-edit-card .save-btn, .inline-edit-card .cancel-btn {
+  background: none;
+  border: none;
+  font-size: 1.3em;
+  cursor: pointer;
+  color: #0078d4;
+  transition: color 0.2s, background 0.2s;
+  padding: 0.3em 0.6em;
+  border-radius: 5px;
+}
+.inline-edit-card .save-btn:hover { color: #28a745; background: #eafbe7; }
+.inline-edit-card .cancel-btn:hover { color: #e74c3c; background: #fdeaea; }
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translate(-50%, -80%); }
+  to { opacity: 1; transform: translate(-50%, -60%); }
+}
+
+/* Dim background when card is open */
+.inline-edit-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 1500;
+  animation: fadeInOverlay 0.18s;
+}
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .profile-table {
+    padding: 12px 4px;
+  }
+  .profile-label {
+    flex: 0 0 80px;
+    font-size: 0.98rem;
+  }
+  .profile-row {
+    padding: 12px 0 6px 0;
+  }
+}
